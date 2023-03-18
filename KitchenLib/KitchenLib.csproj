@@ -22,9 +22,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Reference Include="0Harmony">
-			<HintPath>..\..\..\..\Libraries\MelonLoader\0Harmony.dll</HintPath>
-		</Reference>
 		<Reference Include="Facepunch.Steamworks.Win64">
 			<HintPath>$(GamePath)\PlateUp_Data\Managed\Facepunch.Steamworks.Win64.dll</HintPath>
 		</Reference>
