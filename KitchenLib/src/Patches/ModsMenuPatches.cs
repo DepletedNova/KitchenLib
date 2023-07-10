@@ -1,18 +1,18 @@
 using HarmonyLib;
 using Kitchen;
 using Kitchen.Modules;
-using KitchenData;
 using KitchenLib.Event;
 using KitchenLib.Utils;
 using System;
 using System.Linq;
 using System.Reflection;
-using UnityEngine;
+using KitchenLib.UI;
+using KitchenLib.Preferences;
 
 namespace KitchenLib.Patches
 {
 	[HarmonyPatch(typeof(MainMenuView), "SetupMenus")]
-	class MainMenuView_Patch
+	internal class MainMenuViewPatch
 	{
 		static bool Prefix(MainMenuView __instance)
 		{
@@ -35,7 +35,7 @@ namespace KitchenLib.Patches
 	}
 
 	[HarmonyPatch(typeof(MainMenu), "Setup")]
-	class MainMenu_Patch
+	internal class MainMenuPatch
 	{
 		[HarmonyPrefix]
 		static bool Prefix(StartMainMenu __instance)
@@ -54,7 +54,7 @@ namespace KitchenLib.Patches
 	}
 
 	[HarmonyPatch(typeof(PlayerPauseView), "SetupMenus")]
-	class PlayerPauseView_Patch
+	internal class PlayerPauseViewPatch
 	{
 		[HarmonyPrefix]
 		static bool Prefix(PlayerPauseView __instance)
@@ -69,41 +69,6 @@ namespace KitchenLib.Patches
 			PlayerPauseView_SetupMenusArgs mainMenuViewEvent = new PlayerPauseView_SetupMenusArgs(__instance, mInfo, mList);
 			EventUtils.InvokeEvent(nameof(Events.PlayerPauseView_SetupMenusEvent), Events.PlayerPauseView_SetupMenusEvent?.GetInvocationList(), null, mainMenuViewEvent);
 			return true;
-		}
-	}
-
-	public class DataCollectionMenu : KLMenu<MainMenuAction>
-	{
-		public DataCollectionMenu(Transform container, ModuleList module_list) : base(container, module_list)
-		{
-		}
-		public override void Setup(int player_id)
-		{
-			AddLabel("Are you over 13 years old?");
-
-			AddLabel("Do you permit the collection of your data?");
-		}
-	}
-	public class RevisedMainMenu : KLMenu<MainMenuAction>
-	{
-		public RevisedMainMenu(Transform container, ModuleList module_list) : base(container, module_list)
-		{
-		}
-
-		public override void Setup(int player_id)
-		{
-			ProfileManager.Main.Load();
-
-			AddSubmenuButton(GameData.Main.GlobalLocalisation["MAIN_MENU_SINGLEPLAYER"], typeof(SingleplayerMainMenu), false);
-			AddSubmenuButton(GameData.Main.GlobalLocalisation["MAIN_MENU_MULTIPLAYER"], typeof(MultiplayerMainMenu), false);
-
-			AddSubmenuButton("Mods", typeof(ModsMenu<MainMenuAction>), false);
-			AddSubmenuButton("Mod Preferences", typeof(ModsPreferencesMenu<MainMenuAction>), false);
-
-			AddSubmenuButton(GameData.Main.GlobalLocalisation["MAIN_MENU_OPTIONS"], typeof(OptionsMenu<MainMenuAction>), false);
-			New<SpacerElement>(true);
-			New<SpacerElement>(true);
-			AddActionButton(GameData.Main.GlobalLocalisation["MAIN_MENU_QUIT"], MainMenuAction.Quit, ElementStyle.MainMenuBack);
 		}
 	}
 }

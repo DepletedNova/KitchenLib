@@ -1,4 +1,4 @@
-﻿namespace KitchenLib.References
+namespace KitchenLib.References
 {
 	public class ApplianceReferences
 	{
@@ -480,7 +480,7 @@
 
 		public const int DrawingBoardVisual = 359655899;
 
-		public const int FoodPedestalFranchise = -232172209;
+		public const int FoodPedestalFixed = -232172209;
 
 		public const int FoodPedestal = -1528441435;
 
@@ -509,6 +509,10 @@
 		public const int ProfileEditorTrigger = -1260306608;
 
 		public const int ReloadCrash = 1425494045;
+
+		public const int SpeedrunBoardVisual = -1614041568;
+
+		public const int StatsRoomLocked = -1051912790;
 
 		public const int WorkshopRoomLocked = 1010867759;
 
@@ -584,6 +588,22 @@
 
 		public const int TreeLake = 1134699240;
 
+		public const int AchievementView = -916942203;
+
+		public const int ExperienceView = 345407921;
+
+		public const int LocationLoader = -509190559;
+
+		public const int Map = 1274763392;
+
+		public const int TurboStreetPiece = 965503721;
+
+		public const int TurboWallPieceHalf = 260380903;
+
+		public const int TurboWallPiece = -89571330;
+
+		public const int UpgradeProgressView = 2114150010;
+
 		public const int SourceCherry = 148543530;
 
 		public const int SourceMilk = 120342736;
@@ -594,7 +614,7 @@
 
 		public const int GrassAutumn = -1673904972;
 
-		public const int Rock1 = 1752654754;
+		public const int Rock2 = 1752654754;
 
 		public const int TreeAutumn = -1748395084;
 
@@ -603,6 +623,20 @@
 		public const int ResearchableUpgrade = -1879606524;
 
 		public const int UpgradeKit = -26827118;
+
+		public const int kitchenlibViewHolder = -642195551;
+
+		public const int kitchenlibInfoViewHolder = -927155181;
+
+		public const int kitchenlibSendToClientViewHolder = 148759508;
+
+		public const int kitchenlibTileHighlighterViewController = 618910379;
+
+		public const int kitchenlibClientEquipCapeViewHolder = -996307118;
+
+		public const int kitchenlibSyncModsViewHolder = -1995745069;
+
+		public const int kitchenlib_21_Balloon = 1753502646;
 
 	}
 	public class CompositeUnlockPackReferences
@@ -616,6 +650,8 @@
 		public const int HalloweenPack = -839658581;
 
 		public const int JanuaryPack = -1893039732;
+
+		public const int MarchPack = -619515969;
 
 		public const int AutumnPack = 698670060;
 
@@ -1494,6 +1530,8 @@
 
 		public const int ResearchFlask = 56610526;
 
+		public const int kitchenlibPride_Flag = 109014523;
+
 	}
 	public class ItemGroupReferences
 	{
@@ -1664,6 +1702,8 @@
 
 		public const int JanuaryLayoutProfile = -1207945624;
 
+		public const int TurboDinerLayout = -2142472895;
+
 		public const int BasicLayout = 222370461;
 
 		public const int DinerLayout = -80202533;
@@ -1695,6 +1735,8 @@
 		public const int FebruarySpecialCard = 2136512392;
 
 		public const int JanuaryCards = 1091353668;
+
+		public const int MarchCards = 802797822;
 
 		public const int AutumnDishCards = -320463696;
 
@@ -1772,6 +1814,24 @@
 		public const int EggHat = 1081340831;
 
 		public const int TurkeyHat = -1920946004;
+
+		public const int kitchenlibItsHappening_Cape = 702532359;
+
+		public const int kitchenlibStaff_Cape = 1043620626;
+
+		public const int kitchenlibKitchenLib_Cape = 1651245555;
+
+		public const int kitchenlibSupport_Cape = -352432517;
+
+		public const int kitchenlibTwitch_Cape = -1185733169;
+
+		public const int kitchenlibEaster_Cape = -1918716102;
+
+		public const int kitchenlibGears_Cape = -305886254;
+
+		public const int kitchenlibDiscord_Boost_Cape = -600798204;
+
+		public const int kitchenlibTroll_Cape = -502301556;
 
 	}
 	public class ProcessReferences
@@ -2055,6 +2115,8 @@
 
 		public const int StirFrySoySauce = 1064343768;
 
+		public const int TurboMode = 1958825350;
+
 		public const int NovemberTableSizeIncrease = 319209671;
 
 		public const int NutRoastBase = 536093200;
@@ -2290,6 +2352,8 @@
 
 		public const int JanuaryRedEnvelopes = -1273613313;
 
+		public const int TurboMode = 1958825350;
+
 		public const int NovemberTableSizeIncrease = 319209671;
 
 		public const int AllYouCanEatIncrease = 2055765569;
@@ -2453,6 +2517,10 @@
 
 		public const int JanuaryPack = -1893039732;
 
+		public const int MarchCards = 802797822;
+
+		public const int MarchPack = -619515969;
+
 		public const int AutumnDishCards = -320463696;
 
 		public const int AutumnPack = 698670060;
@@ -2472,13 +2540,13 @@
 	{
 		public const int SameReshuffle2 = 1792697580;
 
-		public const int UpgradedintoKit2 = 1783705474;
+        public const int UpgradedintoKit2 = 1783705474;
 
-		public const int AnyRandom3 = -710212054;
+        public const int AnyRandom3 = -710212054;
 
-		public const int SameReshuffle3 = -495147897;
+        public const int SameReshuffle3 = -495147897;
 
-		public const int UseUpgradeKit = 1299921510;
+        public const int UseUpgradeKit = 1299921510;
 
 	}
 	public class CustomerTypeReferences
@@ -2490,6 +2558,27 @@
 		public const int FirstDate = -1977969432;
 
 		public const int GenericCustomer = -260015680;
+
+	}
+	public class RestaurantSettingReferences
+	{
+		public const int SantaWorkshopSetting = -851159532;
+
+		public const int FebruarySetting = 1766067755;
+
+		public const int JanuarySetting = 507410699;
+
+		public const int MarchSetting = 1736695492;
+
+		public const int Autumn = -405456638;
+
+		public const int Alpine = -1864906012;
+
+		public const int City = 2002876295;
+
+		public const int Country = 447437163;
+
+		public const int Halloween = 82131534;
 
 	}
 }

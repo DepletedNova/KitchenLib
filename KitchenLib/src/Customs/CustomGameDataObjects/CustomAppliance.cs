@@ -1,6 +1,6 @@
 using Kitchen;
 using KitchenData;
-using KitchenLib.Patches;
+using KitchenLib.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace KitchenLib.Customs
 {
-    public abstract class CustomAppliance : CustomLocalisedGameDataObject<Appliance, ApplianceInfo>, ICustomHasPrefab
+	public abstract class CustomAppliance : CustomLocalisedGameDataObject<Appliance, ApplianceInfo>, ICustomHasPrefab
     {
         public virtual GameObject Prefab { get; protected set; }
         public virtual GameObject HeldAppliancePrefab { get; protected set; }
@@ -92,8 +92,8 @@ namespace KitchenLib.Customs
 
             if (BaseGameDataObjectID != -1)
                 result = UnityEngine.Object.Instantiate(gameData.Get<Appliance>().FirstOrDefault(a => a.ID == BaseGameDataObjectID));
-            else
-                result = UnityEngine.Object.Instantiate(gameData.Get<Appliance>().FirstOrDefault(a => a.ID == AssetReference.Counter));
+            //else
+                //result = UnityEngine.Object.Instantiate(gameData.Get<Appliance>().FirstOrDefault(a => a.ID == AssetReference.Counter));
 
             if (result.ID != ID) result.ID = ID;
             if (result.Prefab != Prefab) result.Prefab = Prefab;
@@ -123,7 +123,7 @@ namespace KitchenLib.Customs
 
             if (PurchaseCostOverride != -1)
             {
-                Appliance_Patch.AddPurchaseCostOverride(result.ID, PurchaseCostOverride);
+                ApplianceOverrides.AddPurchaseCostOverride(result.ID, PurchaseCostOverride);
             }
 
             if (InfoList.Count > 0)
@@ -138,14 +138,13 @@ namespace KitchenLib.Customs
                 result.Info = new LocalisationObject<ApplianceInfo>();
                 if (!result.Info.Has(Locale.English))
                 {
-                    result.Info.Add(Locale.English, new ApplianceInfo
-                    {
-                        Name = Name,
-                        Description = Description,
-                        Sections = Sections,
-                        Tags = Tags
-                    });
-                }
+					ApplianceInfo applianceInfo = ScriptableObject.CreateInstance<ApplianceInfo>();
+					applianceInfo.Name = Name;
+					applianceInfo.Description = Description;
+					applianceInfo.Sections = Sections;
+					applianceInfo.Tags = Tags;
+					result.Info.Add(Locale.English, applianceInfo);
+				}
             }
 
 
@@ -163,6 +162,11 @@ namespace KitchenLib.Customs
             if (result.RequiresProcessForShop != RequiresProcessForShop) result.RequiresProcessForShop = RequiresProcessForShop;
             if (result.Upgrades != Upgrades) result.Upgrades = Upgrades;
             if (result.CrateItem != CrateItem) result.CrateItem = CrateItem;
+
+			if (result.Prefab == null)
+			{
+				result.Prefab = Main.bundle.LoadAsset<GameObject>("Error_Appliance");
+			}
         }
 
         public override void OnRegister(GameDataObject gameDataObject)
